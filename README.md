@@ -1,3 +1,3 @@
 # projectA
 
-Only for demonstration purpose
+Only for demonstration purpose.
