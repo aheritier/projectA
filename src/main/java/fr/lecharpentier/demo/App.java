@@ -10,4 +10,9 @@ public class App
     {
         System.out.println( "Hello World!" );
     }
+    
+    @Deprecated
+    public void notToBeUsed() {
+        System.out.println( "You shouldn't see that!" );
+    }
 }
