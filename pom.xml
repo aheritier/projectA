@@ -2,22 +2,39 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>fr.lecharpentier.demo</groupId>
+  <groupId>net.aheritier.demo</groupId>
   <artifactId>projectA</artifactId>
   <packaging>jar</packaging>
   <version>0.1-SNAPSHOT</version>
 
   <name>projectA</name>
 
+  <distributionManagement>
+    <snapshotRepository>
+      <id>cloudbees-private-snapshot-repository</id>
+      <url>dav:https://repository-aheritier.forge.cloudbees.com/snapshot/</url>
+    </snapshotRepository>
+    <repository>
+      <id>cloudbees-private-release-repository</id>
+      <url>dav:https://repository-aheritier.forge.cloudbees.com/release/</url>
+    </repository>
+  </distributionManagement>
+
   <scm>
-    <connection>https://github.com/alecharp/projectA</connection>
-    <developerConnection>scm:git:git@github.com:alecharp/projectA.git</developerConnection>
+    <url>https://github.com/aheritier/projectA</url>
+    <connection>scm:git:git@github.com:aheritier/projectA.git</connection>
+    <developerConnection>scm:git:git@github.com:aheritier/projectA.git</developerConnection>
+    <tag>HEAD</tag>
   </scm>
 
   <developers>
     <developer>
       <id>alecharp</id>
       <name>Adrien Lecharpentier</name>
+    </developer>
+    <developer>
+      <id>aheritier</id>
+      <name>Arnaud Héritier</name>
     </developer>
   </developers>
 
@@ -35,6 +52,13 @@
   </properties>
 
   <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav-jackrabbit</artifactId>
+        <version>2.10</version>
+      </extension>
+    </extensions>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -54,7 +78,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.1</version>
+          <version>2.5.3</version>
           <configuration>
             <goals>clean verify</goals>
             <tagNameFormat>v@{project.version}</tagNameFormat>
@@ -63,4 +87,5 @@
       </plugins>
     </pluginManagement>
   </build>
+
 </project>

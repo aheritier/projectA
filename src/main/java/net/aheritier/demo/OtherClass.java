@@ -1,4 +1,4 @@
-package fr.lecharpentier.demo;
+package net.aheritier.demo;
 
 /**
  * @author Arnaud Héritier <aheritier@exoplatform.com>
